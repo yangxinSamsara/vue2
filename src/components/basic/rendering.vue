@@ -1,0 +1,49 @@
+<template>
+  <div>
+    <ul>
+      <li>
+        <h3>
+          <span class="title-pre">#</span>
+          <span>v-if</span>
+        </h3>
+        <p>v-if 指令用于条件性地渲染一块内容。这块内容只会在指令的表达式返回 truthy 值的时候被渲染。</p>
+        <p>{{okTemplate}}</p>
+        <p>另一个用于根据条件展示元素的选项是 v-show 指令。用法大致一样：</p>
+        <h3>
+          <span class="title-pre">#</span>
+          <span>v-if vs v-show</span>
+        </h3>
+        <p>v-if 是“真正”的条件渲染，因为它会确保在切换过程中条件块内的事件监听器和子组件适当地被销毁和重建。</p>
+        <p>v-if 也是惰性的：如果在初始渲染时条件为假，则什么也不做——直到条件第一次变为真时，才会开始渲染条件块。</p>
+        <p>相比之下，v-show 就简单得多——不管初始条件是什么，元素总是会被渲染，并且只是简单地基于 CSS 进行切换。</p>
+        <p>一般来说，v-if 有更高的切换开销，而 v-show 有更高的初始渲染开销。因此，如果需要非常频繁地切换，则使用 v-show 较好；如果在运行时条件很少改变，则使用 v-if 较好。</p>
+      </li>
+    </ul>
+  </div>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      ok: true,
+      okTemplate: '<div v-if="ok">ok为true显示</div>'
+    };
+  }
+};
+</script>
+<style scoped>
+ul li {
+  margin-bottom: 50px;
+  background: #86bee6;
+  border: 1px solid #000;
+  padding: 5px;
+}
+ul li p {
+  background: #ccc;
+  padding: 5px 10px;
+}
+ul li span.title-pre {
+  color: aqua;
+  font-size: 24px;
+}
+</style>
